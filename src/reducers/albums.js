@@ -4,6 +4,8 @@ const albumsReducers = (albums = [], action) => {
 			return action.payload;
 		case 'CREATE':
 			return [...albums, action.payload];
+		case 'DELETE':
+			return albums.filter((album) => album._id !== action.payload); 
 		default: 
 			return albums;
 	}
