@@ -6,7 +6,7 @@ import Album from './Album/Album';
 
 import makeStyles from './styles.js';
 
-const Albums = () => {
+const Albums = ({setCurrentId}) => {
 	const classes = makeStyles();
 	const albums = useSelector((state) => state.albums);
 	return (
@@ -15,7 +15,7 @@ const Albums = () => {
 				{
 					albums.map(album => (
 						<Grid key={album._id} item xs={12} sm={6}>
-							<Album album={album} />
+							<Album album={album} setCurrentId={setCurrentId} />
 						</Grid>
 					))
 				}
