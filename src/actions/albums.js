@@ -20,7 +20,7 @@ export const createAlbum = (album) => async (dispatch) => {
 }
 export const removeAlbum = (id) => async (dispatch) => {
 	try {
-		// await api.removeAlbum(id);
+		await api.removeAlbum(id);
 		dispatch({ type: 'DELETE', payload: id })
 	} catch (error) {
 		console.log(error);
