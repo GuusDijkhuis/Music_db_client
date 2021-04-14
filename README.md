@@ -26,7 +26,7 @@ I use also NodeJS and MongoDB but I use that on the server instead of the cliën
 - [x] Database connection 
 - [x] Get data from database
 - [x] Send data to the database
-- [ ] Delete data from the database
+- [x] Delete data from the database
 - [ ] Update data from the database
 - [ ] Make more routes
 - [ ] Spotify API (?)
