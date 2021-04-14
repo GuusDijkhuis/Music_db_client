@@ -1,22 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FileBase from 'react-file-base64';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Paper, Typography, TextField, Button, FormControl } from '@material-ui/core';
-import { v4 as uuidv4 } from 'uuid';
 
-import { createAlbum } from '../../actions/albums';
+import { createAlbum, updateAlbum } from '../../actions/albums';
 
 import makeStyles from './styles';
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
 	const [albumData, setAlbumData] = useState({ title: '', artist: '', genre: '', songCount: 1, length: '', albumCover: '', songs: [] })
+	const album = useSelector((state) => currentId ? state.albums.find((a) => a._id === currentId) : null);
 	const classes = makeStyles();
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		if(album) setAlbumData(album);
+	}, [album])
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(createAlbum(albumData));
-		setAlbumData({ title: '', artist: '', genre: '', songCount: 1, length: '', albumCover: '', songs: [] });
+
+		if(currentId) {
+			dispatch(updateAlbum(currentId, albumData));
+		} else {
+			dispatch(createAlbum(albumData));
+		}
+		clear()
 	}
 	const setSongInfo = (e, i) => {
 		let songArray = [ ...albumData.songs ];
@@ -25,8 +34,11 @@ const Form = () => {
 			songArray[i] = { ...songInfo, [e.target.name]: e.target.value }
 			setAlbumData({ ...albumData, songs: songArray });
 		} else {
-			setAlbumData({ ...albumData, songs: [ ...albumData.songs, { title: e.target.value}] });
+			setAlbumData({ ...albumData, songs: [ ...albumData.songs, { [e.target.name]: e.target.value}] });
 		}
+	}
+	const clear = () => {
+		setAlbumData({ title: '', artist: '', genre: '', songCount: 1, length: '', albumCover: '', songs: [] });
 	}
 	return (
 		<Paper className={classes.paper}>
@@ -95,15 +107,15 @@ const Form = () => {
 				<FormControl className={classes.formcontrol} fullWidth>
 					<Typography variant="h5">Song Info</Typography>
 					<ul className={classes.inputList}>
-						<div key={uuidv4} className={classes.songs}>
+						<li className={classes.songs}>
 							<Typography variant="body2"></Typography>
 							<Typography variant="body2" textalign="center">title</Typography>
 							<Typography variant="body2" textalign="center">artist</Typography>
 							<Typography variant="body2" textalign="center">length</Typography>
-						</div>
+						</li>
 						{
 							[...Array(albumData.songCount)].map((res, i) => (
-								<div key={uuidv4} className={classes.songs}>
+								<li className={classes.songs}>
 									<Typography variant="body2">{i+1}</Typography>
 									<TextField 
 										className={classes.songsInput} 
@@ -132,7 +144,7 @@ const Form = () => {
 										margin="dense" 
 										size="medium" 
 									/>
-								</div>
+								</li>
 							))
 						}
 					</ul>

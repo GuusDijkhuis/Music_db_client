@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import { useDispatch } from 'react-redux';
 import Form from './components/Form/Form'; 
 import Albums from './components/Albums/Albums';
@@ -8,12 +8,13 @@ import { getAlbums } from './actions/albums';
 import makeStyles from './styles';
 
 const App = () => {
+	const [currentId, setCurrentId] = useState(null);
 	const classes = makeStyles();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getAlbums())
-	}, [dispatch]);
+	}, [currentId, dispatch]);
 
 	return (
 		<div>
@@ -26,13 +27,13 @@ const App = () => {
 				</Toolbar>
 			</AppBar>
 			<Grow in>
-				<Container className={classes.container}>
+				<Container className={classes.container} >
 					<Grid container  alignItems="stretch" spacing={3}>
 						<Grid item xs={12} sm={4}>
-							<Form />
+							<Form currentId={currentId} setCurrentId={setCurrentId} />
 						</Grid> 
 						<Grid item xs={12} sm={8}>
-							<Albums />
+							<Albums setCurrentId={setCurrentId} />
 						</Grid>
 					</Grid>
 				</Container>
