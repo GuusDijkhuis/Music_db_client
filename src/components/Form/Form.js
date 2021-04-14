@@ -46,7 +46,6 @@ const Form = () => {
 					/>
 					<TextField
 						required
-						
 						id="standard-error-helper-text"
 						name="artist"
 						value={albumData.artist} 

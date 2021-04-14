@@ -14,7 +14,7 @@ export default makeStyles(() => ({
 	},
 	media: {
 		height: 0,
-		paddingTop: '56.25%',
+		paddingTop: '100%',
 		backgroundColor: 'rgba(0, 0, 0, 0.5)',
 		backgroundBlendMode: 'darken',
 	},
@@ -24,9 +24,16 @@ export default makeStyles(() => ({
 	fullHeightCard: {
 		height: '100%',
 	},
+	toolbar: {
+		display: 'flex',
+		'justify-content': 'flex-end',
+		width: '100%',
+		padding: '0',
+		'min-height': '1rem'
+	},
 	overlay: {
 		position: 'absolute',
-		top: '20px',
+		top: '30%',
 		left: '20px',
 		color: 'white',
 	},
