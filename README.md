@@ -29,4 +29,9 @@ I use also NodeJS and MongoDB but I use that on the server instead of the cliën
 - [x] Delete data from the database
 - [x] Update data from the database
 - [ ] Make more routes
+	- [ ] Album detail page
+	- [ ] Artist detail page
+- [ ] Favorites list of songs
+- [ ] Personal Login
+- [ ] Like songs
 - [ ] Spotify API (?)
