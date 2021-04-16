@@ -3,7 +3,7 @@ import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import { Paper, Typography, TextField, Button, FormControl } from '@material-ui/core';
 
-import { createAlbum, updateAlbum } from '../../actions/albums';
+import { createAlbum, updateAlbum } from '../../../actions/albums';
 
 import makeStyles from './styles';
 

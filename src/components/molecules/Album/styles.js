@@ -7,16 +7,16 @@ export default makeStyles(() => ({
 		justifyContent: 'space-between',
 		height: '100%',
 		position: 'relative',
-		transition: '.35s ease transform',
-		'&:hover' : {
-			transform: 'scale(1.02)'
-		}
+		transition: '.35s ease transform'
 	},
 	media: {
 		height: 0,
 		paddingTop: '100%',
 		backgroundColor: 'rgba(0, 0, 0, 0.5)',
 		backgroundBlendMode: 'darken',
+	},
+	content: {
+		padding: '1rem'
 	},
 	border: {
 		border: 'solid',
@@ -26,26 +26,21 @@ export default makeStyles(() => ({
 	},
 	toolbar: {
 		display: 'flex',
-		'justify-content': 'flex-end',
 		width: '100%',
+		'min-height': '1rem',
+		'margin-top': '.5rem',
 		padding: '0',
-		'min-height': '1rem'
-	},
-	overlay: {
-		position: 'absolute',
-		top: '30%',
-		left: '20px',
-		color: 'white',
+		gap: '0.5rem'
 	},
 	grid: {
 		display: 'flex',
 	},
 	details: {
-		display: 'flex',
-		justifyContent: 'space-between',
-		margin: '0.5rem 1rem',
 	},
-	title: {
-		padding: '0 16px',
+	button: {
+		transition: '.25s transform ease',
+		'&:hover': {
+			transform: 'scale(1.02)'
+		}
 	}
 }))

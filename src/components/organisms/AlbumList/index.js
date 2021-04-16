@@ -2,11 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Grid, CircularProgress } from '@material-ui/core';
 
-import Album from './Album/Album';
+import Album from '../../molecules/Album';
 
 import makeStyles from './styles.js';
 
-const Albums = ({setCurrentId}) => {
+const AlbumList = ({setCurrentId}) => {
 	const classes = makeStyles();
 	const albums = useSelector((state) => state.albums);
 	return (
@@ -24,4 +24,4 @@ const Albums = ({setCurrentId}) => {
 	);
 }
 
-export default Albums;
+export default AlbumList;
