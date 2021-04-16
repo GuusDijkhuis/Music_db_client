@@ -2,6 +2,8 @@ const albumsReducers = (albums = [], action) => {
 	switch(action.type) {
 		case 'FETCH_ALL':
 			return action.payload;
+		case 'FETCH_ONE':
+			return action.payload;
 		case 'UPDATE':
 		case 'CREATE':
 			return [...albums, action.payload];

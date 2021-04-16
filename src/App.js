@@ -1,8 +1,9 @@
 import React from 'react'; 
 import { CssBaseline } from '@material-ui/core';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Albums from './pages/Albums';
+import AlbumDetails from './pages/AlbumDetails';
 import Home from './pages/Home';
 
 const App = () => {
@@ -12,6 +13,9 @@ const App = () => {
 			<Switch>
 				<Route exact path="/" >
 					<Home />
+				</Route>
+				<Route path="/albums/:id">
+					<AlbumDetails />
 				</Route>
 				<Route path="/albums">
 					<Albums />

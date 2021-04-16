@@ -32,4 +32,11 @@ export const updateAlbum = (id, album) => async (dispatch) => {
 		console.log(error);
 	}
 }
-
+export const getAlbum = (id) => async (dispatch) => {
+	try {
+		const { data } = await api.fetchAlbum(id);
+		dispatch({ type: 'FETCH_ONE', payload: data })
+	} catch (error) {
+		console.log(error);
+	}
+}

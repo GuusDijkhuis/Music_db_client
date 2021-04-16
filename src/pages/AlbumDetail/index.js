@@ -1,16 +1,15 @@
 import React from 'react'; 
 import Header from '../../components/organisms/Header';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import makeStyles from './styles';
-
-const page = () => {
-	// const classes = makeStyles();
+import Details from '../../components/templates/Details';
+const page = (req, res) => {
+	
 
 	return (
 		<div>
 			<CssBaseline />
 			<Header />
-			<h1>Home</h1>
+			<Details />
 		</div>
 	);
 }
