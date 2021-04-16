@@ -1,11 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
+	container: {
+		padding: '1rem',
+		margin: '1rem',
+		'box-shadow': '0 0 4px 0 rgba(0,0,0,.2)',
+		'border-radius': '10px'
+	},
 	formcontrol: {
 		margin: '1rem 0'
-	},
-	paper: {
-		padding: '1rem',
 	},
 	button: {
 		margin: '0.5rem 0'

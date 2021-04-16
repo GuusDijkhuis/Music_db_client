@@ -2,10 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
 	card: {
+		flex: '0 0 calc(25% - 1rem)',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
-		height: '100%',
+		'box-shadow': '0 0 4px 0 rgba(0,0,0,.2)',
+		'border-radius': '10px',
+		overflow: 'hidden',
 		position: 'relative',
 		transition: '.35s ease transform'
 	},
@@ -34,8 +37,6 @@ export default makeStyles(() => ({
 	},
 	grid: {
 		display: 'flex',
-	},
-	details: {
 	},
 	button: {
 		transition: '.25s transform ease',
