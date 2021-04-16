@@ -1,8 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
-	nav: {
-	},
 	list: {
 		display: 'flex',
 		'align-items': 'center',
