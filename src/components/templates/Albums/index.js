@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'; 
 import { useDispatch } from 'react-redux';
-import Form from '../../components/organisms/Form'; 
-import AlbumList from '../../components/organisms/AlbumList';
-import Header from '../../components/organisms/Header';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container, AppBar, Toolbar, Typography, Grow, Grid } from '@material-ui/core';
-import { getAlbums } from '../../actions/albums';
+import Form from '../../organisms/Form'; 
+import AlbumList from '../../organisms/AlbumList';
+import { getAlbums } from '../../../actions/albums';
 import makeStyles from './styles';
 
 const Albums = () => {
@@ -18,9 +15,7 @@ const Albums = () => {
 	}, [currentId, dispatch]);
 
 	return (
-		<div>
-			<CssBaseline />
-			<Header />
+		<div className={classes.main}>
 			<AlbumList setCurrentId={setCurrentId} />
 			<Form currentId={currentId} setCurrentId={setCurrentId} />
 		</div>

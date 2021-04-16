@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from 'react'; 
+import React from 'react'; 
 import { CssBaseline } from '@material-ui/core';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Albums from './pages/albums';
+import Albums from './pages/Albums';
+import Home from './pages/Home';
 
 const App = () => {
 	return (
-		<div>
+		<Router>
 			<CssBaseline />
-			<Albums />
-		</div>
+			<Switch>
+				<Route exact path="/" >
+					<Home />
+				</Route>
+				<Route path="/albums">
+					<Albums />
+				</Route>
+			</Switch>
+		</Router>
 	);
 }
 

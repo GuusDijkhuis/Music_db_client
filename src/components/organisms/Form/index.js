@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
-import { Paper, Typography, TextField, Button, FormControl } from '@material-ui/core';
+import { Typography, TextField, Button, FormControl } from '@material-ui/core';
 
 import { createAlbum, updateAlbum } from '../../../actions/albums';
 
@@ -41,7 +41,7 @@ const Form = ({ currentId, setCurrentId }) => {
 		setAlbumData({ title: '', artist: '', genre: '', songCount: 1, length: '', albumCover: '', songs: [] });
 	}
 	return (
-		<Paper className={classes.paper}>
+		<div className={classes.container}>
 			<form autoComplete="off" noValidate onSubmit={handleSubmit} className={classes.form}>
 				<FormControl className={classes.formcontrol} fullWidth>
 					<Typography variant="h5">Album Info</Typography>
@@ -159,21 +159,8 @@ const Form = ({ currentId, setCurrentId }) => {
 				Submit
 				</Button>
 			</form>
-		</Paper>
+		</div>
 	);
 }
 
 export default Form;
-
-// title: String,
-// 	artist: String,
-// 	genre: String,
-// 	length: String,
-// 	songCount: Number,
-// 	songs: [
-// 		{
-// 			title: String,
-// 			artist: [String],
-// 			length: String
-// 		}
-// 	]
