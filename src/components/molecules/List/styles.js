@@ -17,6 +17,6 @@ export default makeStyles(() => ({
 		},
 		'&:nth-child(odd)': {
 			'background-color': 'rgba(29, 185, 84,0.2)'
-		}
+		} 
 	}
 }))
