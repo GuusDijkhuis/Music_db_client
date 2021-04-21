@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/albums';
+const url = 'https://album-database.herokuapp.com/albums';
 
 export const fetchAlbums = () => axios.get(url); 
 export const createAlbum = (newAlbum) => axios.post(url, newAlbum);
